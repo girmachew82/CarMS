@@ -30,7 +30,15 @@
                         <td>{{ $car->description }}</td>
                         <td><a href=" car/{{ $car->id }}/edit "><i class="far fa-edit"></i></a></td>
                         <td><a href=" car/{{ $car->id }}"><i class="fas fa-info-circle"></i></a></td>
-                        <td><a href=" car/{{ $car->id }}"><i class="fas fa-trash-alt danger"></i></a></td>
+                        <td>
+                            <form action="/car/{{ $car->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            
+                            </form>
+                        
+                        </td>
                     </tr>
                     @empty
                         

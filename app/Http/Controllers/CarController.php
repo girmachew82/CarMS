@@ -52,8 +52,9 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $car = Car::find($id);
+        return view('car.show')->with('car',$car);
     }
 
     /**
@@ -94,6 +95,8 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::find($id);
+        $car->delete();
+        return redirect('/car');
     }
 }
