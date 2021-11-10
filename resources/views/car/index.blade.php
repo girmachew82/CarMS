@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="body">
-        <table class="table table-striped table-inverse table-responsive">
+        <table class="table table-striped table-inverse table-responsive table-sm">
             <thead class="thead-inverse">
                 <tr>
                     <th>No</th>
@@ -46,7 +46,11 @@
                     
                    
                 </tbody>
+
         </table>
+        <div class="d-flex">
+            {{ $cars->links() }}
+        </div>
     </div>
     <div class="card footer">
 
