@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Car;
-class CarController extends Controller
+use App\Models\CarModel;
+
+class CarModelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +16,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate(2);
+        $car_models = CarModel::all();
         $n=1;
-        return view('car.index',compact('cars','n'));
+        return view('model.index',compact('car_models','n'));
     }
 
     /**
@@ -25,8 +28,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
-        return view('car.create');
+        $cars = Car::all();
+        return view('model.create',compact('cars'));
     }
 
     /**
@@ -37,12 +40,11 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $car = Car::create([
-            'name' =>$request->input('name'),
-            'founded' =>$request->input('founded'),
-            'description'=>$request->input('description')    
-            ]);
-            return redirect('/car');
+        $car_model = new CarModel();
+        $car_model->car_id = $request->input('car');
+        $car_model->model_name = $request->input('model_name');
+        $car_model->save();
+        return redirect('/model');
     }
 
     /**
@@ -52,9 +54,8 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
-        $car = Car::find($id);
-        return view('car.show')->with('car',$car);
+    {
+        //
     }
 
     /**
@@ -65,8 +66,7 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        $car = Car::find($id);
-        return view('car.edit',compact('car'));
+        //
     }
 
     /**
@@ -78,13 +78,7 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $car = Car::where('id',$id)
-       ->update([
-            'name' =>$request->input('name'),
-            'founded' =>$request->input('founded'),
-            'description'=>$request->input('description')    
-            ]);
-            return redirect('/car');
+        //
     }
 
     /**
@@ -95,8 +89,6 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        $car = Car::find($id);
-        $car->delete();
-        return redirect('/car');
+        //
     }
 }
