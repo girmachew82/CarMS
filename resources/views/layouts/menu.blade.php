@@ -29,19 +29,19 @@
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-cogs"></i>
                   <p>Engine</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-calendar-alt"></i>
                   <p>Production date</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fab fa-product-hunt"></i>
                   <p>Product</p>
                 </a>
               </li>

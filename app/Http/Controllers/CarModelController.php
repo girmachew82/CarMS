@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\CarModel;
+use Illuminate\Support\Facades\DB;
 
 class CarModelController extends Controller
 {
@@ -16,7 +17,9 @@ class CarModelController extends Controller
      */
     public function index()
     {
-        $car_models = CarModel::all();
+
+        $car_models = CarModel::join('cars','cars.id','=','car_models.car_id')
+                        ->get(['cars.*','car_models.*']);
         $n=1;
         return view('model.index',compact('car_models','n'));
     }
@@ -55,7 +58,8 @@ class CarModelController extends Controller
      */
     public function show($id)
     {
-        //
+        $car_model = CarModel::find($id);
+        return view('model.show')->with('car_model',$car_model);
     }
 
     /**
@@ -66,7 +70,13 @@ class CarModelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car_model = CarModel::find($id);
+        $cars = Car::all();
+                  
+        $name = CarModel::join('cars','cars.id','=','car_models.car_id')
+        ->where('car_models.id',$id)
+        ->get(['name']);
+        return view('model.edit',compact('car_model','cars','name'));
     }
 
     /**
@@ -78,7 +88,14 @@ class CarModelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car_model = CarModel::where('id',$id)
+                                ->update(
+                                    [
+                                        'car_id'=>$request->input('car_id'),
+                                        'model_name'=>$request->input('model_name')
+                                    ]
+                                    );
+           return redirect('/model');
     }
 
     /**

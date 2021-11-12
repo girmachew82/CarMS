@@ -12,6 +12,15 @@
     Founded at {{ $car->founded }}
     <br>
     Description {{ $car->description }}
+    <br>
+    Model :
+    @forelse ($car->carmodels as $carmodel)
+        <li>
+            {{ $carmodel['model_name'] }}
+        </li>
+    @empty
+        <p>No car model</p>
+    @endforelse
     </div>
 </div>
 @endsection
