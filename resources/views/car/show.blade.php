@@ -21,6 +21,13 @@
     @empty
         <p>No car model</p>
     @endforelse
+    Engine:
+        @forelse ($car->engines as  $engine)
+            <li>{{ $engine->engine_name }}</li>
+        @empty
+            <p>No car engine found</p>
+        @endforelse
+
     </div>
 </div>
 @endsection

@@ -88,7 +88,7 @@ class CarModelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $car_model = CarModel::where('id',$id)
+                       CarModel::where('id',$id)
                                 ->update(
                                     [
                                         'car_id'=>$request->input('car_id'),

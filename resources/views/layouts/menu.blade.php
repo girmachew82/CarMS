@@ -8,7 +8,7 @@
 
           <li class="nav-item menu-is-opening menu-open">
             <a href="{{ route('home') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fas fa-cars"></i>
               <p>
                 Cars
                 <i class="right fas fa-angle-left"></i>
@@ -28,7 +28,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('engine.index') }}" class="nav-link">
                   <i class="fas fa-cogs"></i>
                   <p>Engine</p>
                 </a>
