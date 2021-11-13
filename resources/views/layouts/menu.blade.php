@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="/cpd" class="nav-link">
                   <i class="fas fa-calendar-alt"></i>
                   <p>Production date</p>
                 </a>

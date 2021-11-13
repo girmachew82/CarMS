@@ -24,4 +24,13 @@ class Car extends Model
             'model_id'
         );
     }
+    public function CarProductionDate()
+    {
+        return $this->hasOneThrough(
+            CarProductionDate::class,
+            CarModel::class,
+            'car_id',
+            'model_id'
+        );
+    }
 }

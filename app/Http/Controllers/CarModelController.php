@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\CarModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Routing\Redirector;
 
 class CarModelController extends Controller
 {
@@ -44,10 +45,10 @@ class CarModelController extends Controller
     public function store(Request $request)
     {
         $car_model = new CarModel();
-        $car_model->car_id = $request->input('car');
+        $car_model->car_id = $request->input('car_id');
         $car_model->model_name = $request->input('model_name');
         $car_model->save();
-        return redirect('/model');
+        return redirect()->back()->with('message', 'IT WORKS!');
     }
 
     /**

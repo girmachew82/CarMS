@@ -5,10 +5,15 @@
           <div class="card-tools"><a href="{{ route('model.index') }}"><i class="fas fa-list"></i>&nbsp;All</a></div>
       </div>
       <div class="card-body">
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+     @endif
           <form action="{{route('model.store')}}" method="post">
               @csrf
               <div class="form-group">
-                  <select name="car" id="" class="form-control" required>
+                  <select name="car_id" id="" class="form-control" required>
                     <option value="">Select car</option>
                     @forelse ($cars as $car)
                         <option value="{{ $car->id }}">{{ $car->name }}</option>
