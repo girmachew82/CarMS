@@ -29,7 +29,6 @@
                         <td><a href="/cpd/{{ $cpd->id }}"><i class="fas fa-info-circle"></i></a></td>
                         <td>
                             <form action="" method="post">
-
                                 <button class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
