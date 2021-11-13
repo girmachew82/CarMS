@@ -23,11 +23,17 @@
     @endforelse
     Engine:
         @forelse ($car->engines as  $engine)
-            <li>{{ $engine->engine_name }}</li>
+            <li>{{ $engine->engine_name }} {{ date('d-m-y',strtotime($car->carProductionDate->created_at ))}}</li>
         @empty
             <p>No car engine found</p>
         @endforelse
-
+    Product type:
+    @forelse ($car->products as $product )
+    <li>{{ $product->name }}</li>
+        
+    @empty
+        
+    @endforelse
     </div>
 </div>
 @endsection

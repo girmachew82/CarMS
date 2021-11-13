@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarProductionDate extends Model
+class CarProduct extends Model
 {
     use HasFactory;
-    protected $fillable =['model_id','created_at'];
-    public $timestamps =false;
-   
+    
 }

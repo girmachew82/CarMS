@@ -40,7 +40,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="/product" class="nav-link">
                   <i class="fab fa-product-hunt"></i>
                   <p>Product</p>
                 </a>
